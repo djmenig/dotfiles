@@ -157,7 +157,8 @@ if [ "$version" == "main-release" ]; then
 elif [ "$version" == "rolling-release" ]; then
     echo ":: Installing Rolling Release"
     echo
-    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git $download_folder/dotfiles
+    #git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git $download_folder/dotfiles
+    git clone --branch opensuse-support https://github.com/djmenig/dotfiles.git $download_folder/dotfiles
 elif [ "$version" == "cancel" ]; then
     echo ":: Setup canceled"
     exit 130
