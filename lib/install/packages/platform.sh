@@ -8,11 +8,12 @@ if [ -z $install_platform ]; then
     _writeMessage "Please select your platform to install the ML4W Dotfiles."
     if _checkCommandExists "gum"; then
         echo
-        install_platform=$(gum choose "arch" "fedora" "CANCEL")
+        install_platform=$(gum choose "arch" "fedora" "opensuse" "CANCEL")
     else
         echo
         echo "1: arch"
         echo "2: fedora"
+        echo "3: opensuse"
         echo "0: CANCEL"
         echo
         while true; do
@@ -24,6 +25,10 @@ if [ -z $install_platform ]; then
                     ;;
                 2*)
                     install_platform="fedora"
+                    break
+                    ;;
+                3*)
+                    install_platform="opensuse"
                     break
                     ;;
                 0*)
@@ -46,6 +51,9 @@ case $install_platform in
         ;;
     fedora)
         _writeLogTerminal 0 "Installation on Fedora based platform"
+        ;;
+    opensuse)
+        _writeLogTerminal 0 "Installation on OpenSUSE based platform"
         ;;
     CANCEL)
         _writeCancel

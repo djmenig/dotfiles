@@ -8,7 +8,6 @@ packages=(
     "git"
     "figlet"
     "xdg-user-dirs"
-    # Hyprland
     "hyprland"
     "hyprpaper"
     "hyprlock"
@@ -27,8 +26,9 @@ packages=(
     "fastfetch"
     "xdg-desktop-portal-gtk"
     "eza"
-    "python-3pip"
+    "python311-pip"
     "python-gobject"
+    "python311-screeninfo"
     "tumbler"
     "brightnessctl"
     "nm-connection-editor"
@@ -53,6 +53,7 @@ packages=(
     "qt6ct"
     "waybar"
     "rofi-wayland"
+    "polkit-gnome"
     "zsh"
     "fzf"
     "pavucontrol"
@@ -72,6 +73,8 @@ packages=(
     "flatpak"
     "NetworkManager-tui"
     "nwg-dock-hyprland"
+    "loupe"
+    "power-profiles-daemon"
 )
 
 GREEN='\033[0;32m'
@@ -147,23 +150,8 @@ while true; do
     esac
 done
 
-sudo dnf copr enable --assumeyes solopasha/hyprland
-sudo dnf copr enable --assumeyes peterwu/rendezvous
-sudo dnf copr enable --assumeyes wef/cliphist
-sudo dnf copr enable --assumeyes "tofik/nwg-shell"
-sudo dnf copr enable --assumeyes erikreider/SwayNotificationCenter
-
 # Packages
 _installPackages "${packages[@]}"
-
-# Gum
-echo '[charm]
-name=Charm
-baseurl=https://repo.charm.sh/yum/
-enabled=1
-gpgcheck=1
-gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
-sudo yum install --assumeyes gum
 
 # Oh My Posh
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
@@ -178,7 +166,6 @@ cargo install -q eza
 sudo pip install hyprshade
 sudo pip install pywalfox
 sudo pywalfox install
-sudo pip install screeninfo
 sudo pip install waypaper
 
 echo ":: Installation complete."
