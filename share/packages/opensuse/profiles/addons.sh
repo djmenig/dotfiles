@@ -1,0 +1,10 @@
+packages=(
+  "MozillaFirefox"
+  "nautilus"
+  "nautilus-extension-terminal"
+  "gnome-text-editor"
+  "gnome-calculator"
+  "mpv"
+  "imv"
+  "ffmpegthumbnailer"
+)
